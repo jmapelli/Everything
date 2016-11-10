@@ -12,5 +12,10 @@ namespace Everything.Models.Business
 
         EverythingEntities context = new EverythingEntities();
 
+        public List<tipo> findAll()
+        {
+            return context.tipo.ToList();
+        }
+
     }
 }

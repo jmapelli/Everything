@@ -9,5 +9,13 @@ namespace Everything.Models.Business
     public class UsuarioBusiness
     {
         EverythingEntities context = new EverythingEntities();
+
+        public void create(usuario usuario)
+        {
+            context.usuario.Add(usuario);
+            context.SaveChanges();
+        }
+
     }
+ 
 }

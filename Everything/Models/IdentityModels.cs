@@ -21,6 +21,7 @@ namespace Everything.Models
         }
     }
     //comentario
+    //hola, carlos
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()

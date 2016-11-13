@@ -17,7 +17,7 @@ namespace Everything.Models
             return userIdentity;
         }
     }
-
+    //comentario
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()

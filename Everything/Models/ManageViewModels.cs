@@ -4,7 +4,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
 namespace Everything.Models
-{
+{/// <summary>
+/// ////////////////
+/// </summary>
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }

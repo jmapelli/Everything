@@ -7,8 +7,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace Everything.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    // Hola,
-    //mas bien loquita
+    // Hola, Alejandro
+    //564654zghj
     public class ApplicationUser : IdentityUser
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

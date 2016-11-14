@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Everything.Models.Business;
+using Everything.Models.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +10,28 @@ namespace Everything.Controllers
 {
     public class HomeController : Controller
     {
+        ProductoBusiness productoBusiness = new ProductoBusiness();
         public ActionResult Index()
         {
-            return View();
+            return View(productoBusiness.findAll());
         }
 
-        public ActionResult About()
+        public ActionResult Buscar(string nombre, string etiqueta)
         {
-            ViewBag.Message = "Your application description page.";
+            List<producto> productos = new List<producto>();
 
-            return View();
+            if (nombre != null)
+            {
+                productos = productoBusiness.findByNombre(nombre);
+            }
+
+            if (etiqueta != null)
+            {
+                productos = productoBusiness.findByEtiqueta(etiqueta);
+            }
+
+            return View(productos);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

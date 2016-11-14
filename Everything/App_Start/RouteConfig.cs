@@ -16,7 +16,7 @@ namespace Everything
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Carrito", action = "listarProductos", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "index", id = UrlParameter.Optional }
             );
         }
     }

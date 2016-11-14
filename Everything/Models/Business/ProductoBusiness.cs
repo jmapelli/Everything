@@ -20,6 +20,11 @@ namespace Everything.Models.Business
             return context.producto.Find(id);
         }
 
+        public List<producto> findByNombre(string nombre)
+        {
+            return context.producto.Where(p => p.nombre.ToUpper().Contains(nombre.ToUpper())).ToList();
+        }
+
         public List<producto> findByTipo(int tipo)
         {
             //var data = from p in context.producto

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Everything.Models.Entities.producto>
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-default col-md-3" style="padding-left:0px; padding-right:0px; margin:15px">
+        <div class="panel-body">
+            <img style="width: 100%; height:168px" src="@Url.Content("~/Imagenes/" + item.imagen)" />
+            <p style="margin-top: 10px ;overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: center;">@Html.DisplayFor(modelItem => item.nombre)</p>
+            <p style="text-align: center; font-size: 20px; font-family: verdana; font-weight: bold;">S/. @Html.DisplayFor(modelItem => item.precio)</p>
+            <button style="width: 100%" class="btn btn-success">Agregar</button>
+        </div>
+    </div>
+}

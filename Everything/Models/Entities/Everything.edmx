@@ -37,6 +37,7 @@
           <Property Name="precio" Type="varchar" MaxLength="9" Nullable="false" />
           <Property Name="etiquetas" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="tipo" Type="int" Nullable="false" />
+          <Property Name="imagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tipo">
           <Key>
@@ -168,6 +169,7 @@
           <Property Name="precio" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="etiquetas" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tipo" Type="Int32" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="orden_detalle" Relationship="Self.FK__orden_det__produ__1B0907CE" FromRole="producto" ToRole="orden_detalle" />
           <NavigationProperty Name="tipo1" Relationship="Self.FK__producto__tipo__1273C1CD" FromRole="producto" ToRole="tipo" />
         </EntityType>
@@ -301,6 +303,7 @@
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="etiquetas" ColumnName="etiquetas" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

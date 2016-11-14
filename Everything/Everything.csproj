@@ -198,8 +198,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Everything.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Entities\orden.cs">
       <DependentUpon>Everything.tt</DependentUpon>
     </Compile>
@@ -215,6 +213,8 @@
     <Compile Include="Models\Entities\usuario.cs">
       <DependentUpon>Everything.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Validations\OrdenValidation.cs" />
     <Compile Include="Models\Validations\ProductoValidation.cs" />
     <Compile Include="Models\Validations\UsuarioValidation.cs" />
@@ -293,9 +293,11 @@
     <Content Include="Views\Producto\listar.cshtml" />
     <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\Home\buscar.cshtml" />
+    <Content Include="Views\Shared\_PartialProducto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -30,6 +30,11 @@ namespace Everything.Controllers
                 productos = productoBusiness.findByEtiqueta(etiqueta);
             }
 
+            if (productos.Count() < 1)
+            {
+                ViewBag.mensaje = "No se han encontrado productos";
+            }
+
             return View(productos);
         }
 

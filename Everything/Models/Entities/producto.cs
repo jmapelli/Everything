@@ -29,6 +29,7 @@ namespace Everything.Models.Entities
         public string precio { get; set; }
         public string etiquetas { get; set; }
         public int tipo { get; set; }
+        public string imagen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orden_detalle> orden_detalle { get; set; }

@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="be065055f8a746fc9333648efb0c7ff9" Name="Diagram1">
-        <EntityTypeShape EntityType="EverythingModel.orden" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EverythingModel.orden_detalle" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="6509c0d0c6174d8aa02794f4c86cafa5" Name="Diagram1">
+        <EntityTypeShape EntityType="EverythingModel.orden" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EverythingModel.orden_detalle" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EverythingModel.producto" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="EverythingModel.tipo" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EverythingModel.usuario" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EverythingModel.tipo" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EverythingModel.usuario" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <AssociationConnector Association="EverythingModel.FK__orden__usuario__173876EA" ManuallyRouted="false" />
         <AssociationConnector Association="EverythingModel.FK__orden_det__orden__1A14E395" ManuallyRouted="false" />
         <AssociationConnector Association="EverythingModel.FK__orden_det__produ__1B0907CE" ManuallyRouted="false" />

@@ -11,9 +11,7 @@ namespace Everything.Models.Entities
 {
     using System;
     using System.Collections.Generic;
-    using Validations;
-
-    [System.ComponentModel.DataAnnotations.MetadataType(typeof(OrdenValidation))]
+    
     public partial class orden
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,6 +25,7 @@ namespace Everything.Models.Entities
         public string delivery_fecha { get; set; }
         public string tipo_documento { get; set; }
         public int usuario { get; set; }
+        public decimal total { get; set; }
     
         public virtual usuario usuario1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -17,9 +17,10 @@ namespace Everything.Models.Entities
         public int id { get; set; }
         public int orden { get; set; }
         public int producto { get; set; }
-        public string cantidad { get; set; }
-        public string precio { get; set; }
-        public string total { get; set; }
+        public string detalle { get; set; }
+        public int cantidad { get; set; }
+        public decimal precio { get; set; }
+        public decimal total { get; set; }
     
         public virtual orden orden1 { get; set; }
         public virtual producto producto1 { get; set; }

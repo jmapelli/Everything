@@ -5,19 +5,17 @@
 }
 
 <script type="text/javascript">
-
     $(document).ready(function () {
         $('#btnNuevo').click(function () {
             $('.modal-title').text('Agregar producto');
             $('.modal-body').load("/Producto/crear");
         });
 
-        $('#btnEditar').click(function (eve) {
+        $('.btnEditar').click(function (e) {
             $('.modal-title').text('Editar producto');
             $('.modal-body').load("/Producto/editar/" + $(this).attr("data-id"));
         });
     });
-
 </script>
 
 <div id="modal" class="modal fade" tabindex="-1" role="dialog">
@@ -85,7 +83,7 @@
                 @Html.DisplayFor(modelItem => item.tipo)
             </td>
             <td>
-                <a href="#modal" id="btnEditar" class="btn btn-default btn-sm" data-toggle="modal" data-id="@item.id">Editar</a>
+                <a href="#modal" class="btn btn-default btn-sm btnEditar" data-toggle="modal" data-id="@item.id">Editar</a>
             </td>
         </tr>
     }

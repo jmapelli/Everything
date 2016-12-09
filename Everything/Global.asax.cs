@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Everything.Models.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,5 +18,12 @@ namespace Everything
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        void Session_Start(object sender, EventArgs e)
+        {
+            Session["carrito"] = new List<orden_detalle>();
+            Session["usuario"] = null;
+        }
+
     }
 }

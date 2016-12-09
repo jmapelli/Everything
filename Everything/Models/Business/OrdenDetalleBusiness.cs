@@ -10,5 +10,11 @@ namespace Everything.Models.Business
     {
 
         EverythingEntities context = new EverythingEntities();
+
+        public void create(orden_detalle orden_detalle)
+        {
+            context.orden_detalle.Add(orden_detalle);
+            context.SaveChanges();
+        }
     }
 }

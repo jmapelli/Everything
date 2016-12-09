@@ -16,7 +16,7 @@ namespace Everything.Controllers
             return View(productoBusiness.findAll());
         }
 
-        public ActionResult Buscar(string nombre, string etiqueta)
+        public ActionResult buscar(string nombre, string etiqueta)
         {
             List<producto> productos = new List<producto>();
 

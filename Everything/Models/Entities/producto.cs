@@ -11,9 +11,7 @@ namespace Everything.Models.Entities
 {
     using System;
     using System.Collections.Generic;
-    using Validations;
-
-    [System.ComponentModel.DataAnnotations.MetadataType(typeof(ProductoValidation))]
+    
     public partial class producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,9 +24,9 @@ namespace Everything.Models.Entities
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public string cantidad { get; set; }
-        public string precio { get; set; }
+        public decimal precio { get; set; }
         public string etiquetas { get; set; }
-        public int tipo { get; set; }
+        public Nullable<int> tipo { get; set; }
         public string imagen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

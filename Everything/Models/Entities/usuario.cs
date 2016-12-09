@@ -11,9 +11,7 @@ namespace Everything.Models.Entities
 {
     using System;
     using System.Collections.Generic;
-    using Validations;
-
-    [System.ComponentModel.DataAnnotations.MetadataType(typeof(UsuarioValidation))]
+    
     public partial class usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

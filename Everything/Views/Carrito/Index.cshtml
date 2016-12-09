@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Everything.Models.Entities.orden_detalle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btnEditar').click(function (e) {
+            $('.modal-title').text('Actualizar cantidad');
+            $('.modal-body').load("/Carrito/editar/" + $(this).attr("data-id"));
+        });
+    });
+</script>
+
+<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                @*contenido del modal*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Mi carrito</h2>
+
+<div style="float:left; margin: 10px 0"><a href="@Url.Action("index","Home")" class="btn btn-default">Agregar</a></div>
+<div style="float:right; margin: 10px 0"><a href="@Url.Action("finalizar","Carrito")" class="btn btn-success">Finalizar</a></div>
+
+<table class="table">
+    <tr>
+        <th>
+            item
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.detalle)*@
+            producto
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th></th>
+    </tr>
+
+    @{ int i = 1; }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div>@(i++)</div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.detalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total)
+            </td>
+            <td>
+                <a href="#modal" class="btnEditar" data-toggle="modal" data-id="@(i -2)">Editar</a>
+            </td>
+        </tr>
+    }
+
+</table>

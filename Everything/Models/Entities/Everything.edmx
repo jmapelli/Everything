@@ -14,6 +14,7 @@
           <Property Name="delivery_fecha" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="tipo_documento" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="usuario" Type="int" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="orden_detalle">
           <Key>
@@ -22,9 +23,10 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="orden" Type="int" Nullable="false" />
           <Property Name="producto" Type="int" Nullable="false" />
-          <Property Name="cantidad" Type="varchar" MaxLength="9" Nullable="false" />
-          <Property Name="precio" Type="varchar" MaxLength="9" Nullable="false" />
-          <Property Name="total" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="detalle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="producto">
           <Key>
@@ -34,9 +36,9 @@
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="cantidad" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="precio" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="etiquetas" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="tipo" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="int" />
           <Property Name="imagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tipo">
@@ -94,7 +96,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__producto__tipo__1273C1CD">
-          <End Role="tipo" Type="Self.tipo" Multiplicity="1" />
+          <End Role="tipo" Type="Self.tipo" Multiplicity="0..1" />
           <End Role="producto" Type="Self.producto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipo">
@@ -142,6 +144,7 @@
           <Property Name="delivery_fecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tipo_documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="usuario" Type="Int32" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="usuario1" Relationship="Self.FK__orden__usuario__173876EA" FromRole="orden" ToRole="usuario" />
           <NavigationProperty Name="orden_detalle" Relationship="Self.FK__orden_det__orden__1A14E395" FromRole="orden" ToRole="orden_detalle" />
         </EntityType>
@@ -152,9 +155,10 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="orden" Type="Int32" Nullable="false" />
           <Property Name="producto" Type="Int32" Nullable="false" />
-          <Property Name="cantidad" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="precio" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="total" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="detalle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="orden1" Relationship="Self.FK__orden_det__orden__1A14E395" FromRole="orden_detalle" ToRole="orden" />
           <NavigationProperty Name="producto1" Relationship="Self.FK__orden_det__produ__1B0907CE" FromRole="orden_detalle" ToRole="producto" />
         </EntityType>
@@ -166,9 +170,9 @@
           <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cantidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="precio" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="etiquetas" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="tipo" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="Int32" />
           <Property Name="imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="orden_detalle" Relationship="Self.FK__orden_det__produ__1B0907CE" FromRole="producto" ToRole="orden_detalle" />
           <NavigationProperty Name="tipo1" Relationship="Self.FK__producto__tipo__1273C1CD" FromRole="producto" ToRole="tipo" />
@@ -230,7 +234,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__producto__tipo__1273C1CD">
-          <End Role="tipo" Type="Self.tipo" Multiplicity="1" />
+          <End Role="tipo" Type="Self.tipo" Multiplicity="0..1" />
           <End Role="producto" Type="Self.producto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipo">
@@ -278,6 +282,7 @@
                 <ScalarProperty Name="delivery_fecha" ColumnName="delivery_fecha" />
                 <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
                 <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="total" ColumnName="total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -287,6 +292,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="orden" ColumnName="orden" />
                 <ScalarProperty Name="producto" ColumnName="producto" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="total" ColumnName="total" />

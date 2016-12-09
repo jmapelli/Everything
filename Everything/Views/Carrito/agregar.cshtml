@@ -1,0 +1,64 @@
+﻿@model Everything.Models.Entities.orden_detalle
+
+@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#cantidad').change(function (e) {
+            var precio = $('#precio').val();
+            var cantidad = $('#cantidad').val();
+            $('#hidden_total').val(precio * cantidad);
+            $('#total').val(precio * cantidad);
+            console.log('Se actualizo el total');
+        });
+    });
+</script>
+
+
+<p style="font-size: 20px; margin-bottom: 10px ;overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: center; text-transform:uppercase">@ViewBag.producto.nombre</p>
+<img style="width: 100%; height:auto" src="@Url.Content("~/Imagenes/" + @ViewBag.producto.imagen)" />
+<p style="margin-top: 10px; text-align: justify;">@ViewBag.producto.descripcion</p>
+
+<hr/>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.orden)
+        @Html.HiddenFor(model => model.producto)
+        @Html.HiddenFor(model => model.detalle)
+        @Html.HiddenFor(model => model.precio)
+        @Html.HiddenFor(model => model.total, new { Id = "hidden_total"})
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="precio">precio</label>
+            <div class="col-md-10">
+                <input class="form-control" value="@ViewBag.producto.precio" disabled="disabled">
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger cboCantidad" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.total, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.total, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}

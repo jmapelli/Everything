@@ -16,6 +16,11 @@ namespace Everything.Models.Business
             context.SaveChanges();
         }
 
+        public usuario findById(int id)
+        {
+            return context.usuario.Find(id);
+        }
+
     }
  
 }

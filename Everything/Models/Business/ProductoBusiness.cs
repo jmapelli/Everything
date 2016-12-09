@@ -1,6 +1,7 @@
 ﻿using Everything.Models.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,18 @@ namespace Everything.Models.Business
         public List<producto> findAll()
         {
             return context.producto.ToList();
+        }
+
+        public void create (producto producto)
+        {
+            context.producto.Add(producto);
+            context.SaveChanges();
+        }
+
+        public void edit (producto producto)
+        {
+            context.Entry(producto).State = EntityState.Modified;
+            context.SaveChanges();
         }
 
         public producto findById(int id)

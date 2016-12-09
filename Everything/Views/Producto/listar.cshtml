@@ -4,11 +4,42 @@
     ViewBag.Title = "listar";
 }
 
-<h2>listar</h2>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#btnNuevo').click(function () {
+            $('.modal-title').text('Agregar producto');
+            $('.modal-body').load("/Producto/crear");
+        });
+
+        $('#btnEditar').click(function (eve) {
+            $('.modal-title').text('Editar producto');
+            $('.modal-body').load("/Producto/editar/" + $(this).attr("data-id"));
+        });
+    });
+
+</script>
+
+<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                @*contenido del modal*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Productos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="#modal" id="btnNuevo" class="btn btn-success" data-toggle="modal">Nuevo Producto</a>
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -32,32 +63,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cantidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.etiquetas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "editar", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.etiquetas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                <a href="#modal" id="btnEditar" class="btn btn-default btn-sm" data-toggle="modal" data-id="@item.id">Editar</a>
+            </td>
+        </tr>
+    }
 
 </table>

@@ -294,6 +294,8 @@
     <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\Home\buscar.cshtml" />
     <Content Include="Views\Shared\_PartialProducto.cshtml" />
+    <Content Include="Views\Producto\crear.cshtml" />
+    <Content Include="Views\Producto\editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
